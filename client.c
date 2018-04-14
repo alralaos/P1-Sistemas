@@ -18,9 +18,9 @@ int main(int argc, char *argv[]){
 		ip=argv[1];
 		 
 		struct hostent *he;
-		/* estructura que recibirÃ¡ informaciÃ³n sobre el nodo remoto */
+		/* estructura que recibira informacion sobre el nodo remoto */
 		struct sockaddr_in server;
-		/* informaciÃ³n sobre la direcciÃ³n del servidor */
+		/* informacion sobre la direccion del servidor */
 		 
 		if ((he=gethostbyname(ip))==NULL){
 			/* llamada a gethostbyname() */
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]){
 		server.sin_family = AF_INET;
 		server.sin_port = htons(puerto);
 		server.sin_addr = *((struct in_addr *)he->h_addr);
-		/*he->h_addr pasa la informaciÃ³n de ``*he'' a "h_addr" */
+		/*he->h_addr pasa la informacion de ``*he'' a "h_addr" */
 		bzero(&(server.sin_zero),8);
 		 
 		//Paso 3, conectarnos al servidor
@@ -67,5 +67,4 @@ int main(int argc, char *argv[]){
 	}
 
 	return 0;
- 
 }
